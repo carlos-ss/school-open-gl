@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-g",
+        "${file}", // Compile the current file
+        "-o",
+        "${workspaceFolder}/build/${fileBasenameNoExtension}" // Output executable named after the current file
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Generated task by VS Code"
+    }
+  ]
+}
