@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C++ Debug",
+      "name": "Debug OpenGL",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}", // Use current file name for executable
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
@@ -19,13 +19,8 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "build",
-      "miDebuggerPath": "/usr/bin/gdb", // Path to gdb (Linux/WSL)
-      "logging": {
-        "trace": true,
-        "traceResponse": true,
-        "engineLogging": true
-      }
+      "preLaunchTask": "build-opengl",
+      "miDebuggerPath": "/usr/bin/gdb"
     }
   ]
 }

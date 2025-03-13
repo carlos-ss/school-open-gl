@@ -2,21 +2,34 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build",
+        "label": "build-opengl",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+            "-g",
+            "${file}",
+            "-o",
+            "${fileDirname}/${fileBasenameNoExtension}",
+            "-lGL",
+            "-lGLU",
+            "-lglut",
+            "-lGLEW",
+
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "problemMatcher": ["$gcc"],
+        "detail": "Compile OpenGL program with g++"
+    },
+    {
+      "label": "run-opengl",
       "type": "shell",
-      "command": "g++",
-      "args": [
-        "-g",
-        "${file}", // Compile the current file
-        "-o",
-        "${workspaceFolder}/build/${fileBasenameNoExtension}" // Output executable named after the current file
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": ["$gcc"],
-      "detail": "Generated task by VS Code"
+      "command": "${fileDirname}/${fileBasenameNoExtension}",
+      "dependsOn": ["build-opengl"],
+      "group": "none",
+      "problemMatcher": []
     }
   ]
 }
